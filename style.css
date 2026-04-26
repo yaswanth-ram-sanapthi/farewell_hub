@@ -57,68 +57,12 @@ body {
     padding: 0 20px;
 }
 
-/*---------------------- HERO ------------------------------------*/
-body {
-    margin: 0;
-    padding: 0; /* Removed padding so the hero image touches the absolute top! */
-    font-family: 'Poppins', sans-serif;
-}
-
-/* ---------------navbar----------------------------------------------- */
-.logo {
-    font-weight: 600;
-    font-size: 18px;
-    margin-right: 40px;
-    flex: 1;
-}
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    box-sizing: border-box;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-
-.nav-links li:hover {
-    color: #ff4d8d;
-    cursor: pointer;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
 /* Add padding to the other sections so they don't get hidden under the navbar */
-#journey, #legends, #autographs, #confessions, #awards {
+#journey,
+#legends,
+#autographs,
+#confessions,
+#awards {
     padding-top: 100px;
 }
 
@@ -144,6 +88,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    animation: zoomBg 8s ease-in-out infinite alternate;
 }
 
 /* 🔥 Overlay (important for readability) */
@@ -151,58 +96,55 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.55)
-    );
+    background: linear-gradient(rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.55));
     z-index: 1;
 }
-.hero-content {
-  animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.hero-bg {
-  animation: zoomBg 8s ease-in-out infinite alternate;
-}
-
-@keyframes zoomBg {
-  from { transform: scale(1); }
-  to { transform: scale(1.05); }
-}
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 40px;
-  }
-
-  .hero-content h2 {
-    font-size: 32px;
-  }
-}
 
 .hero-content {
+    animation: fadeUp 1s ease forwards;
     position: relative;
     z-index: 2;
-
     max-width: 900px;
     width: 100%;
     padding: 0 20px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     color: white;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomBg {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
 }
 
 /* Top small text */
@@ -220,7 +162,7 @@ body {
     font-weight: 700;
     margin: 0;
     line-height: 1.1;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Batch year (pink highlight) */
@@ -274,10 +216,24 @@ body {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-    40% { transform: translate(-50%, -10px); }
-    60% { transform: translate(-50%, -5px); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        transform: translate(-50%, -10px);
+    }
+
+    60% {
+        transform: translate(-50%, -5px);
+    }
 }
+
 /* ---------------- TIMELINE ------------------------------------*/
 #journey {
     overflow-y: auto;
@@ -337,8 +293,9 @@ body {
 .card {
     background: white;
     color: black;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 0;
+    /* Removes padding so the image touches the edges */
+    border-radius: 12px;
     width: 80%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -346,14 +303,8 @@ body {
     z-index: 2;
     transition: all 0.3s ease;
     transform: rotate(-2deg);
-}
-
-.card ul {
-    padding-left: 20px;
-}
-
-.card li {
-    margin-bottom: 8px;
+    overflow: hidden;
+    /* Keeps the top corners of the image rounded */
 }
 
 .left {
@@ -380,11 +331,7 @@ body {
     z-index: 10;
 }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
-}
-
+/* Timeline Icon */
 .icon {
     position: absolute;
     top: 20px;
@@ -398,50 +345,144 @@ body {
     z-index: 10;
 }
 
+/* --- PHOTOS CAROUSEL --- */
 .carousel {
     position: relative;
+    width: 100%;
+    height: 240px;
 }
 
 .carousel img {
     width: 100%;
-    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.prev,
-.next {
+/* Dark gradient overlay at bottom so white text/dots stand out */
+.carousel::after {
+    content: '';
     position: absolute;
-    top: 40%;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    pointer-events: none;
 }
 
-.prev {
+.year-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    color: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+/* Floating, blurred arrows */
+/* Floating, blurred arrows */
+.carousel button.prev,
+.carousel button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark translucent background */
+    backdrop-filter: blur(4px);
+    color: white;
+    /* Arrows stay white and pop against the dark background */
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.carousel button.prev:hover,
+.carousel button.next:hover {
+    background: rgba(0, 0, 0, 0.6);
+    /* Gets slightly darker on hover */
+}
+
+.carousel button.prev {
     left: 10px;
 }
 
-.next {
+.carousel button.next {
     right: 10px;
 }
 
+/* Pill-shaped active dots */
 .dots {
-    text-align: center;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
 }
 
 .dot {
-    height: 8px;
-    width: 8px;
-    margin: 3px;
+    height: 6px;
+    width: 6px;
     display: inline-block;
-    background: #ccc;
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .dot.active {
-    background: #ff4d8d;
+    background: white;
+    width: 20px;
+    /* Makes the active dot a pill shape */
+    border-radius: 4px;
+}
+
+/* --- CARD TEXT CONTENT --- */
+.card-content {
+    padding: 20px;
+}
+
+.card-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.card-content ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.card-content li {
+    margin-bottom: 12px;
+    color: #444;
+    position: relative;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Custom Pink Bullets */
+.card-content li::before {
+    content: "•";
+    color: #ff4d8d;
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    top: -2px;
 }
 
 .final-line {
@@ -449,10 +490,9 @@ body {
     font-size: 20px;
     font-weight: 500;
     margin: 80px 0 40px;
-    color: #555;
+    color: #ff4d8d;
     position: relative;
     font-style: italic;
-    color: #ff4d8d;
 }
 
 .tab-content {
@@ -478,7 +518,6 @@ body {
 /* =========================================
    LEGENDS SECTION (POLAROID PAGINATION)
    ========================================= */
-
 #legends {
     min-height: 100vh;
     padding: 100px 40px 40px;
@@ -680,11 +719,6 @@ body {
     color: white;
 }
 
-#submitBtn {
-    margin-top: 15px;
-    width: 100%;
-}
-
 .posts {
     margin-top: 40px;
     max-width: 600px;
@@ -754,11 +788,6 @@ body {
     margin-top: 15px;
 }
 
-#submitConf {
-    width: 100%;
-    margin-top: 15px;
-}
-
 #confessionList .conf-card {
     text-align: left;
 }
@@ -775,6 +804,35 @@ body {
     padding: 5px 10px;
     border-radius: 15px;
     color: #333;
+}
+
+/* =========================================
+   SUBMIT BUTTONS (Autographs & Confessions)
+   ========================================= */
+#submitBtn,
+#submitConf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    margin-top: 25px;
+    padding: 12px 28px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+#submitBtn:hover,
+#submitConf:hover {
+    background-color: #1a252f;
+    transform: translateY(-2px);
 }
 
 /* --------------- BATCH AWARDS PAGE ----------------------- */
@@ -807,7 +865,7 @@ body {
     color: #999;
 }
 
-/* Award Grid - Side By Side layout restored */
+/* Award Grid */
 .awards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -903,7 +961,7 @@ body {
     background-color: #11111f;
 }
 
-/* --- RESULTS VIEW STYLES (Upgraded to match Dark Mode screenshot) --- */
+/* --- RESULTS VIEW STYLES --- */
 .result-card {
     display: flex;
     flex-direction: column;
@@ -978,7 +1036,7 @@ body {
 }
 
 /* =========================================
-   CUSTOM AWARDS DROPDOWN (FORCES DOWNWARDS)
+   CUSTOM AWARDS DROPDOWN
    ========================================= */
 .custom-select-wrapper {
     position: relative;
@@ -1058,7 +1116,7 @@ body {
 }
 
 /* =========================================
-   DARK MODE STYLES (FORCED OVERRIDES)
+   DARK MODE STYLES
    ========================================= */
 .theme-toggle {
     cursor: pointer;
@@ -1120,7 +1178,7 @@ body.dark-mode .final-line {
     color: #aaa !important;
 }
 
-/* All Cards (Timeline, Awards, Results, Polaroids) */
+/* All Cards */
 body.dark-mode .card,
 body.dark-mode .polaroid-card,
 body.dark-mode .auto-card,
@@ -1137,6 +1195,11 @@ body.dark-mode .result-card {
 body.dark-mode .card p,
 body.dark-mode .card li {
     color: #f0f0f0 !important;
+}
+
+/* Ensure bullet points are visible in dark mode */
+body.dark-mode .card-content li {
+    color: #e0e0e0 !important;
 }
 
 /* Inputs & Textareas */
@@ -1196,6 +1259,19 @@ body.dark-mode .back-to-voting-btn:hover {
     background-color: #272732 !important;
 }
 
+/* Dark Mode Submit Buttons */
+body.dark-mode #submitBtn,
+body.dark-mode #submitConf {
+    background-color: #8b8d98 !important;
+    color: #111 !important;
+    font-weight: 600;
+}
+
+body.dark-mode #submitBtn:hover,
+body.dark-mode #submitConf:hover {
+    background-color: #a2a4b0 !important;
+}
+
 /* =========================================
    UI UPGRADES (Animations & Highlights)
    ========================================= */
@@ -1212,7 +1288,6 @@ body.dark-mode .back-to-voting-btn:hover {
 
 .winner-name {
     color: #ffd700 !important;
-    /* Gold! Uses !important to override Dark Mode text */
     font-weight: 800;
     font-size: 18px;
     letter-spacing: 0.5px;
@@ -1221,5 +1296,59 @@ body.dark-mode .back-to-voting-btn:hover {
 @keyframes fadeIn {
     to {
         opacity: 1;
+    }
+}
+/* =========================================
+   CAROUSEL SMOKE / FOG EFFECT
+   ========================================= */
+.carousel::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -50px;
+    width: calc(100% + 100px);
+    height: 60%;
+    
+    /* Layered gradients to create "clouds" of smoke */
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 80% 85%, rgba(255, 255, 255, 0.15) 0%, transparent 55%);
+    
+    /* Blurs the gradients to make it look like mist */
+    filter: blur(8px);
+    z-index: 1; /* Sits above the image */
+    pointer-events: none; /* So it doesn't block clicks */
+    
+    /* Animates the smoke slowly side-to-side */
+    animation: smokeDrift 15s ease-in-out infinite alternate;
+}
+
+/* Make sure the text, dots, and buttons stay ABOVE the smoke */
+.year-badge,
+.dots,
+.carousel button.prev,
+.carousel button.next {
+    z-index: 5 !important; 
+}
+
+/* Ensure the dark background gradient stays behind the smoke */
+.carousel::after {
+    z-index: 0 !important; 
+}
+
+/* The actual drifting animation */
+@keyframes smokeDrift {
+    0% { 
+        transform: translateX(-15px) scale(1); 
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translateX(15px) scale(1.05); 
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(-15px) scale(1); 
+        opacity: 0.7;
     }
 }

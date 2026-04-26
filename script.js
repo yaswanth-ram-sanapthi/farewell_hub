@@ -55,10 +55,33 @@ function createSlider(imgId, dotId, images) {
 }
 
 function initSliders() {
-    createSlider("year1-img", "year1-dots", ["images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg"]);
-    createSlider("year2-img", "year2-dots", ["images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg"]);
-    createSlider("year3-img", "year3-dots", ["images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg"]);
-    createSlider("year4-img", "year4-dots", ["images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg", "images/IMG-20251122-WA0043.jpg"]);
+    // 1st Year Slider
+    createSlider("year1-img", "year1-dots", [
+        "images/group/year1-1.jpg",
+        "images/group/year1-2.jpg",
+        "images/group/year1-3.jpg"
+    ]);
+
+    // 2nd Year Slider
+    createSlider("year2-img", "year2-dots", [
+        "images/group/year2-1.jpg",
+        "images/group/year2-2.jpg",
+        "images/group/year2-3.jpg"
+    ]);
+
+    // 3rd Year Slider
+    createSlider("year3-img", "year3-dots", [
+        "images/group/year3-1.jpg",
+        "images/group/year3-2.jpg",
+        "images/group/year3-3.jpg"
+    ]);
+
+    // 4th Year Slider
+    createSlider("year4-img", "year4-dots", [
+        "images/group/year4-1.jpg",
+        "images/group/year4-2.jpg",
+        "images/group/year4-3.jpg"
+    ]);
 }
 
 // =========================================
