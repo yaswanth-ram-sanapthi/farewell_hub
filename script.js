@@ -263,8 +263,8 @@ function initFirebaseAutographs() {
                 alert("Failed to save. Check your connection!");
             }
         });
-    }
 
+    }
     // Category button toggler
     const categories = document.querySelectorAll(".autographs-section .cat");
     categories.forEach(btn => {
@@ -321,6 +321,7 @@ async function loadAutographs() {
 function initFirebaseConfessions() {
     const confBtn = document.getElementById("submitConf");
 
+    // Submit confession
     if (confBtn) {
         confBtn.addEventListener("click", async () => {
             const inputField = document.getElementById("conf-message");
@@ -345,13 +346,18 @@ function initFirebaseConfessions() {
                 alert("Confession submitted!");
                 inputField.value = "";
 
+                loadConfessions(); // refresh after submit
+
             } catch (error) {
                 console.error("Error saving confession:", error);
             }
         });
     }
 
-    // Category button toggler
+    // 🔥 Always load on page start
+    loadConfessions();
+
+    // Category toggle
     const categoryButtons = document.querySelectorAll(".confessions-section .cat");
     categoryButtons.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -359,8 +365,48 @@ function initFirebaseConfessions() {
             btn.classList.add("active");
         });
     });
-}
 
+    // =========================
+    // LOAD FUNCTION
+    // =========================
+    async function loadConfessions() {
+        const confListDiv = document.getElementById("confessionList");
+        if (!confListDiv) return;
+
+        confListDiv.innerHTML = "";
+
+        try {
+            const querySnapshot = await getDocs(collection(db, "confessions"));
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+
+                const confCard = document.createElement("div");
+                confCard.className = "post";
+
+                const dateStr = data.time
+                    ? data.time.toDate().toLocaleDateString()
+                    : new Date().toLocaleDateString();
+
+                confCard.innerHTML = `
+                    <div class="post-top">
+                        <strong>🤫 Anonymous</strong>
+                        <span class="date">${dateStr}</span>
+                    </div>
+                    <p>${data.text}</p>
+                    <div class="post-bottom">
+                        <span class="category">${data.category || 'Secret'}</span>
+                    </div>
+                `;
+
+                confListDiv.appendChild(confCard);
+            });
+
+        } catch (error) {
+            console.error("Error loading confessions:", error);
+        }
+    }
+}
 // =========================================
 // FIREBASE: AWARDS LOGIC
 // =========================================
