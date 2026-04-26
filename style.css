@@ -1,10 +1,13 @@
+/* =========================================
+   GLOBAL STYLES & NAVBAR
+   ========================================= */
 body {
     margin: 0;
     padding-top: 70px;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* ---------------navbar----------------------------------------------- */
 .logo {
     font-weight: 600;
     font-size: 18px;
@@ -43,21 +46,12 @@ body {
     font-weight: 500;
 }
 
-.nav-links li:hover {
+.nav-links li:hover,
+.nav-links li a:hover {
     color: #ff4d8d;
-    cursor: pointer;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-/* Add padding to the other sections so they don't get hidden under the navbar */
+/* Section Spacing */
 #journey,
 #legends,
 #autographs,
@@ -66,20 +60,20 @@ body {
     padding-top: 100px;
 }
 
-/*---------------------- HERO ------------------------------------*/
+/* =========================================
+   HERO SECTION
+   ========================================= */
 .hero {
     position: relative;
     height: 100vh;
     width: 100%;
     overflow: hidden;
-
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-/* 🔥 This makes image behave like background */
 .hero-bg {
     position: absolute;
     top: 0;
@@ -91,13 +85,11 @@ body {
     animation: zoomBg 8s ease-in-out infinite alternate;
 }
 
-/* 🔥 Overlay (important for readability) */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.35),
-            rgba(0, 0, 0, 0.55));
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
     z-index: 1;
 }
 
@@ -111,8 +103,56 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     color: white;
+}
+
+.hero-content p:first-child {
+    letter-spacing: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #ff4d8d;
+    margin: 8px 0 20px 0;
+    line-height: 1.1;
+}
+
+.hero-content p:nth-of-type(2) {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.hero-content button.cta-btn {
+    background-color: #ff4d8d !important;
+    padding: 14px 40px;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 141, 0.3);
+}
+
+.hero-content button.cta-btn:hover {
+    transform: scale(1.06);
+    background-color: #e0437c !important;
+    box-shadow: 0 6px 20px rgba(255, 77, 141, 0.5);
 }
 
 @keyframes fadeUp {
@@ -137,112 +177,13 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 40px;
-    }
-
-    .hero-content h2 {
-        font-size: 32px;
-    }
-}
-
-/* Top small text */
-.hero-content p:first-child {
-    letter-spacing: 4px;
-    font-size: 14px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    opacity: 0.9;
-}
-
-/* Main title */
-.hero-content h1 {
-    font-size: 72px;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.1;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Batch year (pink highlight) */
-.hero-content h2 {
-    font-size: 60px;
-    font-weight: 700;
-    color: #ff4d8d;
-    margin: 8px 0 20px 0;
-    line-height: 1.1;
-}
-
-/* Subtitle */
-.hero-content p:nth-of-type(2) {
-    font-size: 18px;
-    margin-bottom: 30px;
-    opacity: 0.95;
-}
-
-/* Button */
-.hero-content button {
-    background-color: #ff4d8d !important;
-    padding: 14px 40px;
-    border-radius: 40px;
-    border: none;
-    color: white;
-    font-weight: 600;
-    font-size: 17px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 77, 141, 0.3);
-}
-
-.hero-content button:hover {
-    transform: scale(1.06);
-    background-color: #e0437c !important;
-    box-shadow: 0 6px 20px rgba(255, 77, 141, 0.5);
-}
-
-/* Scroll arrow */
-.scroll-down {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 24px;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    opacity: 0.7;
-    z-index: 2;
-}
-
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translate(-50%, 0);
-    }
-
-    40% {
-        transform: translate(-50%, -10px);
-    }
-
-    60% {
-        transform: translate(-50%, -5px);
-    }
-}
-
-/* ---------------- TIMELINE ------------------------------------*/
-#journey {
-    overflow-y: auto;
-}
-
+/* =========================================
+   JOURNEY SECTION (TIMELINE & CAROUSEL)
+   ========================================= */
 .journey-title {
     text-align: center;
     font-size: 40px;
-    margin: 50px 0;
+    margin: 50px 0 10px 0;
 }
 
 .subtitle {
@@ -278,40 +219,11 @@ body {
 
 .year-block.left {
     left: 0;
+    padding-right: 60px;
 }
 
 .year-block.right {
     left: 50%;
-}
-
-.year-block.right .icon {
-    left: 0;
-    transform: translate(-50%, 0);
-}
-
-/* Timeline Cards with Float Effect */
-.card {
-    background: white;
-    color: black;
-    padding: 0;
-    /* Removes padding so the image touches the edges */
-    border-radius: 12px;
-    width: 80%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    text-align: left;
-    z-index: 2;
-    transition: all 0.3s ease;
-    transform: rotate(-2deg);
-    overflow: hidden;
-    /* Keeps the top corners of the image rounded */
-}
-
-.left {
-    padding-right: 60px;
-}
-
-.right {
     padding-left: 60px;
 }
 
@@ -324,14 +236,33 @@ body {
     transform: rotate(2deg);
 }
 
+.year-block.right .icon {
+    left: 0;
+    transform: translate(-50%, 0);
+}
+
+.card {
+    background: white;
+    color: black;
+    padding: 0;
+    border-radius: 12px;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.3s ease;
+    transform: rotate(-2deg);
+    overflow: hidden;
+}
+
 .card:hover,
 .right .card:hover {
     transform: translateY(-10px) scale(1.02) rotate(0deg);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     z-index: 10;
 }
 
-/* Timeline Icon */
 .icon {
     position: absolute;
     top: 20px;
@@ -345,7 +276,7 @@ body {
     z-index: 10;
 }
 
-/* --- PHOTOS CAROUSEL --- */
+/* Carousel */
 .carousel {
     position: relative;
     width: 100%;
@@ -359,7 +290,6 @@ body {
     display: block;
 }
 
-/* Dark gradient overlay at bottom so white text/dots stand out */
 .carousel::after {
     content: '';
     position: absolute;
@@ -367,40 +297,38 @@ body {
     left: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, transparent 100%);
     pointer-events: none;
+    z-index: 0 !important;
 }
 
 .year-badge {
     position: absolute;
     bottom: 12px;
     left: 20px;
-    color: #ccc;
+    color: #fff;
     font-size: 14px;
     font-weight: 600;
-    z-index: 2;
+    z-index: 5 !important;
     letter-spacing: 1px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Floating, blurred arrows */
-/* Floating, blurred arrows */
 .carousel button.prev,
 .carousel button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.4);
-    /* Dark translucent background */
     backdrop-filter: blur(4px);
     color: white;
-    /* Arrows stay white and pop against the dark background */
     border: none;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     font-size: 14px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 5 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -410,7 +338,6 @@ body {
 .carousel button.prev:hover,
 .carousel button.next:hover {
     background: rgba(0, 0, 0, 0.6);
-    /* Gets slightly darker on hover */
 }
 
 .carousel button.prev {
@@ -421,7 +348,6 @@ body {
     right: 10px;
 }
 
-/* Pill-shaped active dots */
 .dots {
     position: absolute;
     bottom: 15px;
@@ -429,14 +355,14 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 6px;
-    z-index: 2;
+    z-index: 5 !important;
 }
 
 .dot {
     height: 6px;
     width: 6px;
     display: inline-block;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     transition: 0.3s ease;
     cursor: pointer;
@@ -445,23 +371,56 @@ body {
 .dot.active {
     background: white;
     width: 20px;
-    /* Makes the active dot a pill shape */
     border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* --- CARD TEXT CONTENT --- */
+/* Smoke Effect */
+.carousel::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -50px;
+    width: calc(100% + 100px);
+    height: 60%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 80% 85%, rgba(255, 255, 255, 0.15) 0%, transparent 55%);
+    filter: blur(8px);
+    z-index: 1;
+    pointer-events: none;
+    animation: smokeDrift 15s ease-in-out infinite alternate;
+}
+
+@keyframes smokeDrift {
+    0% {
+        transform: translateX(-15px) scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(15px) scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-15px) scale(1);
+        opacity: 0.7;
+    }
+}
+
 .card-content {
     padding: 20px;
 }
 
 .card-content h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
     font-size: 24px;
 }
 
 .card-content ul {
-    padding-left: 0;
+    padding: 0;
     list-style: none;
     margin: 0;
 }
@@ -475,7 +434,6 @@ body {
     line-height: 1.4;
 }
 
-/* Custom Pink Bullets */
 .card-content li::before {
     content: "•";
     color: #ff4d8d;
@@ -485,24 +443,17 @@ body {
     top: -2px;
 }
 
-.final-line {
+/* =========================================
+   LEGENDS SECTION (POLAROID CARDS)
+   ========================================= */
+#legends {
+    min-height: 100vh;
+    padding: 100px 40px 40px;
     text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-    margin: 80px 0 40px;
-    color: #ff4d8d;
-    position: relative;
-    font-style: italic;
-}
-
-.tab-content {
-    display: block;
-    height: auto;
-    overflow: visible;
-}
-
-.active-content {
-    display: block;
+    color: white;
+    background-color: #4a3424;
+    background-image: radial-gradient(#ffffff22 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
 .search-btn {
@@ -513,19 +464,6 @@ body {
     background: white;
     cursor: pointer;
     color: #333;
-}
-
-/* =========================================
-   LEGENDS SECTION (POLAROID PAGINATION)
-   ========================================= */
-#legends {
-    min-height: 100vh;
-    padding: 100px 40px 40px;
-    text-align: center;
-    color: white;
-    background-color: #4a3424;
-    background-image: radial-gradient(#ffffff22 1px, transparent 1px);
-    background-size: 30px 30px;
 }
 
 .pagination-header {
@@ -554,15 +492,13 @@ body {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
     padding: 10px;
-    margin: 0;
 }
 
 .page-arrow:hover {
     color: #ff4d8d;
     transform: scale(1.2);
-    background: transparent;
 }
 
 .page-dots {
@@ -652,69 +588,72 @@ body {
 }
 
 /* =========================================
-   AUTOGRAPH PAGE
+   FORMS & INPUTS (Autographs & Confessions)
    ========================================= */
-#autographs {
-    overflow-y: auto;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.auto-title {
+.auto-title,
+.awards-title {
     font-size: 32px;
     margin-bottom: 10px;
     text-align: center;
+    font-weight: 700;
+    color: #111;
 }
 
-.auto-sub {
+.auto-sub,
+.awards-subtitle {
     color: gray;
     margin-bottom: 30px;
     text-align: center;
 }
 
-.auto-card {
+.auto-card,
+.conf-card {
     max-width: 600px;
     margin: auto;
-    background: #f9f9f9;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f4f8;
 }
 
 .auto-card input,
-.auto-card textarea {
+.auto-card textarea,
+.conf-card textarea {
     width: 100%;
     margin-top: 15px;
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #e2e8f0;
     font-family: inherit;
     box-sizing: border-box;
+    font-size: 14px;
 }
 
-.auto-card textarea {
+.auto-card textarea,
+.conf-card textarea {
     height: 100px;
     resize: none;
 }
 
-.category {
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  display: inline-block;
-
-  background: rgba(255, 77, 141, 0.15);
-  color: #ff4d8d;
-  border: 1px solid rgba(255, 77, 141, 0.4);
+.categories {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
 .cat {
     border: none;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 20px;
-    background: #eee;
+    background: #f1f5f9;
     cursor: pointer;
-    margin: 5px;
-    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    transition: 0.2s;
 }
 
 .cat.active {
@@ -722,108 +661,12 @@ body {
     color: white;
 }
 
-.posts {
-  max-width: 1000px;
-  margin: 40px auto;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-
-  align-items: start;
-}
-.posts .post {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.post-top {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-@media (max-width: 768px) {
-  .posts {
-    grid-template-columns: 1fr;
-  }
-}
-
-.date {
-    color: gray;
-}
-
-.post-bottom {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.category {
-    background: #ffe6ef;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-}
-
-.like-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-/* =========================================
-   CONFESSIONS PAGE
-   ========================================= */
-.conf-card {
-    background: white;
-    padding: 25px;
-    margin: 15px auto;
-    max-width: 600px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.conf-card textarea {
-    width: 100%;
-    height: 100px;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-family: inherit;
-    box-sizing: border-box;
-    resize: none;
-    margin-top: 15px;
-}
-
-#confessionList .conf-card {
-    text-align: left;
-}
-
-.reactions {
-    margin-top: 15px;
-}
-
-.reactions button {
-    margin-right: 10px;
-    cursor: pointer;
-    background: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: #333;
-}
-
-/* =========================================
-   SUBMIT BUTTONS (Autographs & Confessions)
-   ========================================= */
 #submitBtn,
 #submitConf {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: auto;
     margin-top: 25px;
     padding: 12px 28px;
     background-color: #2c3e50;
@@ -831,7 +674,7 @@ body {
     border: none;
     border-radius: 30px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: inherit;
@@ -843,112 +686,292 @@ body {
     transform: translateY(-2px);
 }
 
-/* --------------- BATCH AWARDS PAGE ----------------------- */
-#awards {
-    padding: 80px 20px 400px 20px;
-    background-color: #fafafa;
+#submitBtn:active,
+#submitConf:active {
+    transform: scale(0.97);
+}
+
+/* =========================================
+   MESSAGE CARDS (Autograph & Confession Lists)
+   ========================================= */
+#autographs,
+#confessions {
+    padding: 80px 20px;
     text-align: center;
-    min-height: 120vh;
 }
 
-.awards-header {
-    margin-bottom: 40px;
+.posts,
+#confessionList {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    align-items: start;
 }
 
-.awards-title {
-    font-size: 32px;
+.post {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f4f8;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.post-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+.post-top strong {
     color: #111;
-    margin-bottom: 10px;
     font-weight: 700;
+    font-size: 16px;
 }
 
-.awards-subtitle {
+.date {
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.post p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 10px 0 20px 0 !important;
+    font-weight: 500;
+}
+
+/* Center Confessions text and add italic secret vibe */
+#confessionList .post p {
+    text-align: center;
     font-size: 16px;
-    color: #666;
-    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.post-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px dashed #f0f4f8;
+}
+
+.category {
+    background: rgba(255, 77, 141, 0.1);
+    color: #ff4d8d;
+    border: 1px solid rgba(255, 77, 141, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.like-btn {
+    background: #f8f9fc;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.like-btn:hover {
+    background: #ff4d8d;
+    color: white;
+    border-color: #ff4d8d;
+}
+
+/* =========================================
+   AWARDS SECTION
+   ========================================= */
+#awards {
+    padding: 80px 20px 100px 20px;
+    text-align: center;
 }
 
 .vote-count {
     font-size: 13px;
     color: #999;
+    margin-bottom: 40px;
 }
 
-/* Award Grid */
 .awards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    gap: 20px;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .award-card {
     background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     text-align: left;
-    border: 1px solid #f0f0f0;
-    transition: transform 0.2s ease;
+    border: 1px solid #f0f4f8;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     z-index: 1;
 }
 
 .award-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .award-card-header {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .award-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 24px;
     color: white;
 }
 
 .award-card-header h3 {
     margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 700;
     color: #111;
 }
 
 .award-input-group {
     display: flex;
-    gap: 15px;
+    gap: 12px;
+}
+
+.custom-select-wrapper {
+    position: relative;
+    flex: 1;
+    user-select: none;
+}
+
+.custom-select-trigger {
+    padding: 10px 18px;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: #64748b;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.custom-select-trigger::after {
+    content: "▼";
+    font-size: 10px;
+    color: #999;
+}
+
+.custom-select-trigger:hover {
+    border-color: #cbd5e1;
+}
+
+.custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 999;
+    display: none;
+}
+
+.custom-options.open {
+    display: block;
+}
+
+.custom-option {
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #f8fafc;
+    transition: 0.2s;
+}
+
+.custom-option:hover {
+    background-color: #f1f5f9;
+    color: #111;
+}
+
+.custom-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-options::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 10px;
 }
 
 .vote-btn {
     margin-top: 0;
-    padding: 10px 25px;
-    background-color: #8f93a2;
+    padding: 10px 24px;
+    background-color: #9499a8;
     color: white;
-    border-radius: 20px;
+    border-radius: 24px;
     font-weight: 500;
     font-size: 14px;
     border: none;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .vote-btn:hover {
     background-color: #7a7e8c;
-    transform: scale(1);
 }
 
 .vote-btn.voted {
     background-color: #2ecc71;
     pointer-events: none;
+}
+
+.vote-btn:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
 }
 
 .results-container {
@@ -963,30 +986,26 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .show-results-btn:hover {
     background-color: #11111f;
 }
 
-/* --- RESULTS VIEW STYLES --- */
 .result-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 40px 20px;
-    border-radius: 20px;
-}
-
-.result-card .award-icon {
-    margin-bottom: 10px;
+    animation: fadeIn 0.5s forwards;
 }
 
 .result-tag {
-    background-color: #f2f2f2;
+    background-color: #f1f5f9;
     color: #333;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     padding: 6px 15px;
     border-radius: 20px;
@@ -1014,113 +1033,99 @@ body {
 }
 
 .vote-tally {
-    font-size: 12px;
-    color: #888;
+    font-size: 13px;
+    color: #64748b;
     margin: 0;
+    font-weight: 500;
 }
 
 .back-to-voting-btn {
     background-color: transparent;
-    border: 1px solid #ddd;
+    border: 1px solid #cbd5e1;
     color: #333;
     padding: 12px 35px;
     border-radius: 30px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
 .back-to-voting-btn:hover {
-    background-color: #f9f9f9;
-    border-color: #ccc;
-}
-
-.vote-btn:disabled {
-    background-color: #e0e0e0;
-    color: #a0a0a0;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
+    background-color: #f8fafc;
 }
 
 /* =========================================
-   CUSTOM AWARDS DROPDOWN
+   FINAL SECTION & FOOTER
    ========================================= */
-.custom-select-wrapper {
-    position: relative;
-    flex: 1;
-    user-select: none;
+.final-line {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 80px 0 40px;
+    color: #ff4d8d;
+    font-style: italic;
 }
 
-.custom-select-trigger {
-    padding: 12px 15px;
-    border-radius: 20px;
-    border: 1px solid #e0e0e0;
-    background-color: #fafafa;
-    color: #555;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
+.final-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 77, 141, 0.05));
 }
 
-.custom-select-trigger::after {
-    content: "▼";
-    font-size: 10px;
-    color: #999;
-}
-
-.custom-select-trigger:hover {
-    border-color: #ccc;
-}
-
-.custom-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin-top: 5px;
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    max-height: 250px;
-    overflow-y: auto;
-    z-index: 999;
-    display: none;
-}
-
-.custom-options.open {
-    display: block;
-}
-
-.custom-option {
-    padding: 12px 15px;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
-    border-bottom: 1px solid #f9f9f9;
-    transition: background 0.2s ease;
-}
-
-.custom-option:hover {
-    background-color: #f0f8ff;
+.final-section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    animation: fadeUp 1s ease;
     color: #111;
 }
 
-.custom-option:last-child {
-    border-bottom: none;
+.tagline {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+    animation: fadeUp 1s ease;
 }
 
-.custom-options::-webkit-scrollbar {
-    width: 8px;
+.final-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
-.custom-options::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 10px;
+.final-stats h3 {
+    font-size: 28px;
+    color: #ff4d8d;
+    margin: 0;
+}
+
+.final-stats p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+.closing {
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* =========================================
+   LIGHT MODE DEFAULT BACKGROUND
+   ========================================= */
+body:not(.dark-mode) {
+    background: #f8f9fc;
+    color: #222;
 }
 
 /* =========================================
@@ -1138,15 +1143,13 @@ body {
     transform: scale(1.2);
 }
 
-/* Base Dark Colors */
 body.dark-mode {
-    background-color: #121212 !important;
+    background-color: #0b0c10 !important;
     color: #f0f0f0 !important;
 }
 
-/* Navbar */
 body.dark-mode .navbar {
-    background-color: #1e1e1e !important;
+    background-color: #13141c !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -1155,17 +1158,15 @@ body.dark-mode .nav-links li a {
     color: #f0f0f0 !important;
 }
 
-/* Sections Backgrounds */
 body.dark-mode #awards,
 body.dark-mode .legends,
 body.dark-mode #autographs,
 body.dark-mode #confessions,
 body.dark-mode #journey {
-    background-color: #0e0e14 !important;
+    background-color: #0b0c10 !important;
     background-image: none !important;
 }
 
-/* Headings and Texts */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
@@ -1182,11 +1183,13 @@ body.dark-mode .auto-sub,
 body.dark-mode .awards-subtitle,
 body.dark-mode .vote-count,
 body.dark-mode .page-info,
-body.dark-mode .final-line {
+body.dark-mode .final-line,
+body.dark-mode .tagline,
+body.dark-mode .closing {
     color: #aaa !important;
 }
 
-/* All Cards */
+/* Dark Mode Cards (Navy Seamless) */
 body.dark-mode .card,
 body.dark-mode .polaroid-card,
 body.dark-mode .auto-card,
@@ -1194,34 +1197,59 @@ body.dark-mode .post,
 body.dark-mode .conf-card,
 body.dark-mode .award-card,
 body.dark-mode .result-card {
-    background-color: #15151e !important;
+    background-color: #13141c !important;
     color: #f0f0f0 !important;
-    border: none !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid #1f212e !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
-body.dark-mode .card p,
-body.dark-mode .card li {
-    color: #f0f0f0 !important;
+/* Image Fade fix for Journey Cards */
+body.dark-mode .carousel::after {
+    background: linear-gradient(to top, #13141c 5%, transparent) !important;
+    z-index: 0 !important;
 }
 
-/* Ensure bullet points are visible in dark mode */
+/* Message Cards / Confessions Dark Mode */
+body.dark-mode .post-top {
+    border-bottom: 1px solid #1f212e !important;
+}
+
+body.dark-mode .post-top strong {
+    color: #fff !important;
+}
+
+body.dark-mode .post-bottom {
+    border-top: 1px dashed #1f212e !important;
+}
+
+body.dark-mode .post p,
 body.dark-mode .card-content li {
-    color: #e0e0e0 !important;
+    color: #d1d5db !important;
 }
 
-/* Inputs & Textareas */
+body.dark-mode .like-btn {
+    background: #1a1b26 !important;
+    border-color: #272a38 !important;
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .like-btn:hover {
+    background: #ff4d8d !important;
+    color: white !important;
+    border-color: #ff4d8d !important;
+}
+
+/* Inputs */
 body.dark-mode input,
 body.dark-mode textarea {
-    background-color: #2a2a2a !important;
+    background-color: #1a1b26 !important;
     color: #f0f0f0 !important;
-    border: 1px solid #444 !important;
+    border: 1px solid #272a38 !important;
 }
 
-/* Categories & Tags */
 body.dark-mode .cat {
-    background: #333 !important;
-    color: #f0f0f0 !important;
+    background: #1a1b26 !important;
+    color: #94a3b8 !important;
 }
 
 body.dark-mode .cat.active {
@@ -1230,229 +1258,114 @@ body.dark-mode .cat.active {
 }
 
 body.dark-mode .result-tag {
-    background-color: #272732 !important;
-    color: #e0e0e0 !important;
+    background-color: #1a1b26 !important;
+    color: #e2e8f0 !important;
 }
 
 /* Custom Dropdown Overrides */
 body.dark-mode .custom-select-trigger {
-    background-color: #2a2a2a !important;
+    background-color: #1a1b26 !important;
     color: #f0f0f0 !important;
-    border-color: #444 !important;
+    border-color: #272a38 !important;
 }
 
 body.dark-mode .custom-options {
-    background-color: #1e1e1e !important;
-    border-color: #444 !important;
+    background-color: #13141c !important;
+    border-color: #272a38 !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
 body.dark-mode .custom-option {
-    border-bottom-color: #333 !important;
-    color: #f0f0f0 !important;
+    border-bottom-color: #1f212e !important;
+    color: #cbd5e1 !important;
 }
 
 body.dark-mode .custom-option:hover {
-    background-color: #333 !important;
+    background-color: #1a1b26 !important;
     color: white !important;
 }
 
 body.dark-mode .back-to-voting-btn {
     background-color: transparent !important;
-    color: #f0f0f0 !important;
-    border: 1px solid #444 !important;
+    color: #cbd5e1 !important;
+    border: 1px solid #272a38 !important;
 }
 
 body.dark-mode .back-to-voting-btn:hover {
-    background-color: #272732 !important;
+    background-color: #1a1b26 !important;
 }
 
-/* Dark Mode Submit Buttons */
 body.dark-mode #submitBtn,
 body.dark-mode #submitConf {
-    background-color: #8b8d98 !important;
-    color: #111 !important;
-    font-weight: 600;
+    background-color: #334155 !important;
+    color: white !important;
 }
 
 body.dark-mode #submitBtn:hover,
 body.dark-mode #submitConf:hover {
-    background-color: #a2a4b0 !important;
+    background-color: #475569 !important;
 }
 
-/* =========================================
-   UI UPGRADES (Animations & Highlights)
-   ========================================= */
-.result-card {
-    transition: 0.3s ease;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-.result-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.winner-name {
+body.dark-mode .winner-name {
     color: #ffd700 !important;
     font-weight: 800;
     font-size: 18px;
     letter-spacing: 0.5px;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
 /* =========================================
-   CAROUSEL SMOKE / FOG EFFECT
+   MOBILE RESPONSIVENESS
    ========================================= */
-.carousel::before {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: -50px;
-    width: calc(100% + 100px);
-    height: 60%;
-    
-    /* Layered gradients to create "clouds" of smoke */
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
-        radial-gradient(circle at 80% 85%, rgba(255, 255, 255, 0.15) 0%, transparent 55%);
-    
-    /* Blurs the gradients to make it look like mist */
-    filter: blur(8px);
-    z-index: 1; /* Sits above the image */
-    pointer-events: none; /* So it doesn't block clicks */
-    
-    /* Animates the smoke slowly side-to-side */
-    animation: smokeDrift 15s ease-in-out infinite alternate;
-}
-
-/* Make sure the text, dots, and buttons stay ABOVE the smoke */
-.year-badge,
-.dots,
-.carousel button.prev,
-.carousel button.next {
-    z-index: 5 !important; 
-}
-
-/* Ensure the dark background gradient stays behind the smoke */
-.carousel::after {
-    z-index: 0 !important; 
-}
-
-/* The actual drifting animation */
-@keyframes smokeDrift {
-    0% { 
-        transform: translateX(-15px) scale(1); 
-        opacity: 0.7;
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 10px;
+        font-size: 12px;
     }
-    50% { 
-        transform: translateX(15px) scale(1.05); 
-        opacity: 1;
+
+    .posts,
+    #confessionList,
+    .awards-grid {
+        grid-template-columns: 1fr !important;
     }
-    100% { 
-        transform: translateX(-15px) scale(1); 
-        opacity: 0.7;
+
+    .conf-card,
+    .auto-card,
+    .award-card,
+    .post {
+        padding: 15px;
     }
-}
-/* ===== FIX CONFESSIONS LAYOUT ===== */
-#confessionList {
-  max-width: 1000px;
-  margin: 40px auto;
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
+    #submitBtn,
+    #submitConf {
+        width: 100%;
+    }
 
-/* IMPORTANT FIX */
-#confessionList .post {
-  width: 100%;
-  box-sizing: border-box;
-  height: auto;
-  overflow: hidden;
-}
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-  color: #ccc;
-  font-size: 14px;
-}
+    .year-block {
+        width: 100%;
+        padding: 0 0 40px 0;
+        margin: 0;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    .year-block.left,
+    .year-block.right {
+        left: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-.post:hover {
-  transform: translateY(-3px);
-  transition: 0.2s ease;
-}
+    .timeline::before {
+        left: 20px;
+    }
 
-button:active {
-  transform: scale(0.97);
-}
-/* ===== FINAL SECTION ===== */
+    .icon {
+        left: 20px;
+        transform: translateX(-50%);
+    }
 
-.final-section {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(255, 77, 141, 0.08)
-  );
-}
-.final-section h2 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.tagline {
-  font-size: 18px;
-  opacity: 0.85;
-  margin-bottom: 40px;
-}
-
-.final-stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.final-stats h3 {
-  font-size: 28px;
-  color: #ff4d8d;
-}
-
-.final-stats p {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-.closing {
-  font-size: 16px;
-  opacity: 0.8;
-}
-.final-section h2,
-.final-section .tagline {
-  animation: fadeUp 1s ease;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    .card {
+        width: 90%;
+        margin-left: 50px !important;
+        margin-right: 0 !important;
+        transform: rotate(0deg) !important;
+    }
 }
