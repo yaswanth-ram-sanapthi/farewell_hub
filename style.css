@@ -697,13 +697,16 @@ body {
     resize: none;
 }
 
-.categories {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    justify-content: center;
-}
+.category {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
 
+  background: rgba(255, 77, 141, 0.15);
+  color: #ff4d8d;
+  border: 1px solid rgba(255, 77, 141, 0.4);
+}
 .cat {
     border: none;
     padding: 8px 12px;
@@ -720,18 +723,18 @@ body {
 }
 
 .posts {
-    margin-top: 40px;
-    max-width: 600px;
-    margin-inline: auto;
-}
+  max-width: 1000px;
+  margin: 40px auto;
 
-.post {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    text-align: left;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  align-items: start;
+}
+.posts .post {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .post-top {
@@ -739,6 +742,11 @@ body {
     justify-content: space-between;
     font-size: 14px;
     margin-bottom: 8px;
+}
+@media (max-width: 768px) {
+  .posts {
+    grid-template-columns: 1fr;
+  }
 }
 
 .date {
@@ -1353,16 +1361,98 @@ body.dark-mode #submitConf:hover {
     }
 }
 /* ===== FIX CONFESSIONS LAYOUT ===== */
-
 #confessionList {
-  max-width: 650px;
+  max-width: 1000px;
   margin: 40px auto;
-  display: flex;
-  flex-direction: column;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
+/* IMPORTANT FIX */
 #confessionList .post {
   width: 100%;
-  padding: 18px;
+  box-sizing: border-box;
+  height: auto;
+  overflow: hidden;
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #ccc;
+  font-size: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  transition: 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+/* ===== FINAL SECTION ===== */
+
+.final-section {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 77, 141, 0.08)
+  );
+}
+.final-section h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+.final-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.final-stats h3 {
+  font-size: 28px;
+  color: #ff4d8d;
+}
+
+.final-stats p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.closing {
+  font-size: 16px;
+  opacity: 0.8;
+}
+.final-section h2,
+.final-section .tagline {
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
